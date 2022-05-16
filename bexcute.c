@@ -1,14 +1,14 @@
 #include "shell.h"
 /**
-**builtin_execute - executes the built in functions
+**bexecute - built in functions
 **@tokens: arguments being passed
 **Return: tokens
 **/
-int builtin_execute(char **tokens)
+int bexecute(char **tokens)
 {
 	int status;
 	unsigned int length;
-	unsigned int num;
+	unsigned int number;
 	unsigned int i;
 
 	inbuilt_s builtin[] = {
@@ -22,8 +22,8 @@ int builtin_execute(char **tokens)
 
 	length = _strlen(tokens[0]);
 
-	num = shell_num_builtins(builtin);
-	for (i = 0; i < num; i++)
+	number = shell_counter(builtin);
+	for (i = 0; i < number; i++)
 	{
 		if (_strcmp(tokens[0], builtin[i].name, length) == 0)
 		{
@@ -35,12 +35,12 @@ int builtin_execute(char **tokens)
 }
 
 /**
-**shell_num_builtins - this check num built-ins
+**shell_num_builtins - this check num built-ins counts array of builtins
 **@builtin: takes the builtin to be counted
 **Return: num of built-ins
 **/
 
-int shell_num_builtins(inbuilt_s builtin[])
+int shell_counter(inbuilt_s builtin[])
 {
 	unsigned int i;
 
@@ -51,32 +51,30 @@ int shell_num_builtins(inbuilt_s builtin[])
 	return (i);
 }
 /**
-**shell_exit - exits the shell
+**shell_exit - exits the shell of the programmm
 **Return: void
 **/
-
-        int shell_exit(void)
-        {
-                return (-1);
-        }
+int shell_exit(void)
+{
+	return (-1);
+}
 
 
 /**
-**shell_env - prints environment
+**shell_env - prints enviromental viriables 
 **Return: void
 **/
+int shell_env(void)
+{
+	unsigned int i;
 
-        int shell_env(void)
-        {
-                unsigned int i;
-
-                i = 0;
-                while (environ[i] != NULL)
-                {
-                        write(STDOUT_FILENO, environ[i], _strlen(environ[i]));
-                        write(STDOUT_FILENO, "\n", 1);
-                        i++;
-                }
-                return (0);
-        }
+	i = 0;
+	while (environ[i] != NULL)
+	{
+		write(STDOUT_FILENO, environ[i], _strlen(environ[i]));
+		write(STDOUT_FILENO, "\n", 1);
+		i++;
+	}
+	return (0);
+}
 

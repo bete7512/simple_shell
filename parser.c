@@ -5,7 +5,7 @@
  * @str: user input
  * Return: pointer to array of tokens
  */
-char **stringtotoken(char *str)
+char **parse(char *str)
 {
 	char **tokens;
 	char *token;

@@ -75,24 +75,21 @@ int _strlen(char *s)
 
 	while (s[i] != '\0')
 		i++;
-
 	return (i);
 }
 /**
- *
- *
+ *signal_to_handel - accepts ctrl + c and responces
+ *@sig:signal to listen
  *
  *
  */
-
-
 void signal_to_handel(int sig)
 {
-        if (sig == SIGINT)
-        {
-                _putchar('\n');
-                _putchar('$');
-                _putchar(' ');
-        }
+	if (sig == SIGINT)
+	{
+		_putchar('\n');
+		_putchar('$');
+		_putchar(' ');
+	}
 }
 

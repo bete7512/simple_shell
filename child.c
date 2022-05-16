@@ -6,7 +6,7 @@
  * @tokens: tokenized user input
  * Return: 0 on success
  */
-int child(char *fullpath, char **tokens)
+int forking(char *fullpath, char **tokens)
 {
 	pid_t c_pid;
 	int status;

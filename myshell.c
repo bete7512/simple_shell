@@ -8,15 +8,17 @@ int main(void)
 	char *line, *path, *fullpath;
 	char **tokens;
 	int flag, builtin_status, child_status;
-	signal(SIGINT, signal_to_handel);
+
+	/*signal(SIGINT, signal_to_handel);*/
 	while (TRUE)
 	{
 		_puts(PROMPT);
+		signal(SIGINT, signal_to_handel);
 		line = _getline(stdin);
-tokens = stringtotoken(line);
+tokens = parse(line);
 if (tokens[0] == NULL)
 continue;
-builtin_status = builtin_execute(tokens);
+builtin_status = bexecute(tokens);
 		if (builtin_status == 0 || builtin_status == -1)
 		{
 			free(tokens);
@@ -33,7 +35,7 @@ builtin_status = builtin_execute(tokens);
 			fullpath = tokens[0];
 		else
 			flag = 1; /* if fullpath was malloc'd, flag to free */
-		child_status = child(fullpath, tokens);
+		child_status = forking(fullpath, tokens);
 		if (child_status == -1)
 			errors(2);
 		free_all(tokens, path, line, fullpath, flag);
