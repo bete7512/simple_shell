@@ -11,7 +11,7 @@ int bexecute(char **tokens)
 	unsigned int number;
 	unsigned int i;
 
-	inbuilt_s builtin[] = {
+	b_s builtin[] = {
 		{"exit", shell_exit},
 		{"env", shell_env},
 		{NULL, NULL}
@@ -35,12 +35,12 @@ int bexecute(char **tokens)
 }
 
 /**
-**shell_num_builtins - this check num built-ins counts array of builtins
+**shell_counter - this check number of built-ins in array
 **@builtin: takes the builtin to be counted
 **Return: num of built-ins
 **/
 
-int shell_counter(inbuilt_s builtin[])
+int shell_counter(b_s builtin[])
 {
 	unsigned int i;
 

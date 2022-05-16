@@ -12,7 +12,8 @@ int main(void)
 	/*signal(SIGINT, signal_to_handel);*/
 	while (TRUE)
 	{
-		_puts(PROMPT);
+		_putchar('$');
+		_putchar(' ');
 		signal(SIGINT, signal_to_handel);
 		line = _getline(stdin);
 tokens = parse(line);

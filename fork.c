@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * child - function for child process
+ * forking - function for forked process
  * @fullpath: full path of executable
  * @tokens: tokenized user input
  * Return: 0 on success

@@ -13,27 +13,11 @@
 #define TRUE 1
 #define PROMPT "$ "
 
-/* error strings */
 #define ERR_MALLOC "Unable to malloc space\n"
 #define ERR_FORK "Unable to fork and create child process\n"
 #define ERR_PATH "No such file or directory\n"
 /* external (global) variable*/
 extern char **environ;
-
-/**
- * struct list_s - linked list of variables
- * @value: value
- * @next: pointer to next node
- *
- * Description: generic linked list struct for variables.
-**/
-
-typedef struct list_s
-{
-	char *value;
-	struct list_s *next;
-} list_s;
-
 /**
  * struct inbuilt_s - linked list of builtins
  * @name: name of builtin
@@ -45,7 +29,7 @@ typedef struct inbuilt_s
 {
 	char *name;
 	int (*p)(void);
-} inbuilt_s;
+} b_s;
 int _putchar(char c);
 void signal_to_handel(int sig);
 char *_getline(FILE *fp);
@@ -61,10 +45,9 @@ char *_strcpy(char *dest, char *src);
 int shell_env(void);
 int shell_exit(void);
 int bexecute(char **tokens);
-int shell_counter(inbuilt_s builtin[]);
+int shell_counter(b_s builtin[]);
 char *_getenv(const char *name);
-char **copy_env(char **environ_copy, unsigned int environ_length);
-list_s *pathlist(char *variable, list_s *head);
+char **copier(char **copy, unsigned int environ_length);
 void free_all(char **tokens, char *path, char *line, char *fullpath, int flag);
 void free_dp(char **array, unsigned int length);
 #endif
