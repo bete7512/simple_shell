@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
- * _which - searches directories in PATH variable for command
+ * _which - directory searcher
  * @command: to search for
  * @fullpath: full path of command to execute
  * @path: full PATH variable
@@ -8,19 +8,18 @@
  */
 char *_which(char *command, char *fullpath, char *path)
 {
-	unsigned int command_length, path_length, original_path_length;
+	unsigned int command_length, path_length, original;
 	char *path_copy, *token;
 
 	command_length = _strlen(command);
-	original_path_length = _strlen(path);
-	path_copy = malloc(sizeof(char) * original_path_length + 1);
+	original = _strlen(path);
+	path_copy = malloc(sizeof(char) * original + 1);
 	if (path_copy == NULL)
 	{
 		errors(ERR_MALLOC);
 		return (NULL);
 	}
 	_strcpy(path_copy, path);
-	/* copy PATH directory + command name and check if it exists */
 	token = strtok(path_copy, ":");
 	if (token == NULL)
 		token = strtok(NULL, ":");
