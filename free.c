@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * free_all - frees all malloc'd space at end of main loop
- * @tokens: pointer to tokens array
- * @path: pointer to path variable
+ * free_all - frees all
+ * @tokens: pointer to tokens of array
+ * @path: pointer to path 
  * @line: pointer to user input buffer
  * @fullpath: pointer to full path
- * @flag: flag marking if full_path was malloc'd
+ * @flag: flag
  * Return: void
  */
 void free_all(char **tokens, char *path, char *line, char *fullpath, int flag)
@@ -20,7 +20,7 @@ void free_all(char **tokens, char *path, char *line, char *fullpath, int flag)
 
 /**
  * free_dp - free double pointer
- * @array: double pointer to free
+ * @array: double
  * @length: length of double pointer
  * Return: void
  */
