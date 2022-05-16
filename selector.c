@@ -1,12 +1,12 @@
 #include "shell.h"
 /**
- * _which - directory searcher
+ * selector - directory searcher
  * @command: to search for
  * @fullpath: full path of command to execute
  * @path: full PATH variable
  * Return: pointer to full_path
  */
-char *_which(char *command, char *fullpath, char *path)
+char *selector(char *command, char *fullpath, char *path)
 {
 	unsigned int command_length, path_length, original;
 	char *path_copy, *token;

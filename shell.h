@@ -15,13 +15,13 @@
 /* external (global) variable*/
 extern char **environ;
 /**
- * struct inbuilt_s - linked list of builtins
+ * struct builtin - linked list of builtins
  * @name: name of builtin
  * @p: pointer to function
  *
  * Description: struct for builtin functions.
 **/
-typedef struct inbuilt_s
+typedef struct _builtin
 {
 	char *name;
 	int (*p)(void);
@@ -30,7 +30,7 @@ int _putchar(char c);
 void signal_to_handel(int sig);
 char *_getline(FILE *fp);
 char **parse(char *str);
-char *_which(char *command, char *fullpath, char *path);
+char *selector(char *command, char *fullpath, char *path);
 int forking(char *fullpath, char **tokens);
 void errors(char *error);
 void _puts(char *str);

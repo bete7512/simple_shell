@@ -31,7 +31,7 @@ builtin_status = bexecute(tokens);
 			_exit(EXIT_SUCCESS);
 		flag = 0; /* 0 if full_path is not malloc'd */
 		path = _getenv("PATH");
-		fullpath = _which(tokens[0], fullpath, path);
+		fullpath = selector(tokens[0], fullpath, path);
 		if (fullpath == NULL)
 			fullpath = tokens[0];
 		else
