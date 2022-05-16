@@ -16,7 +16,7 @@ int forking(char *fullpath, char **tokens)
 	c_pid = fork();
 	if (c_pid == -1)
 	{
-		errors(1);
+		errors(ERR_FORK);
 		exit(EXIT_FAILURE);
 	}
 	if (c_pid == 0)

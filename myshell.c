@@ -10,7 +10,7 @@ int main(void)
 	int flag, builtin_status, child_status;
 
 	/*signal(SIGINT, signal_to_handel);*/
-	while (TRUE)
+	while (1)
 	{
 		_putchar('$');
 		_putchar(' ');
@@ -38,7 +38,7 @@ builtin_status = bexecute(tokens);
 			flag = 1; /* if fullpath was malloc'd, flag to free */
 		child_status = forking(fullpath, tokens);
 		if (child_status == -1)
-			errors(2);
+			errors("error");
 		free_all(tokens, path, line, fullpath, flag);
 	}
 	return (0);

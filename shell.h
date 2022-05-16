@@ -9,10 +9,6 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
-#define BUFFER 1024
-#define TRUE 1
-#define PROMPT "$ "
-
 #define ERR_MALLOC "Unable to malloc space\n"
 #define ERR_FORK "Unable to fork and create child process\n"
 #define ERR_PATH "No such file or directory\n"
@@ -36,7 +32,7 @@ char *_getline(FILE *fp);
 char **parse(char *str);
 char *_which(char *command, char *fullpath, char *path);
 int forking(char *fullpath, char **tokens);
-void errors(int error);
+void errors(char *error);
 void _puts(char *str);
 int _strlen(char *s);
 int _strcmp(char *name, char *variable, unsigned int length);

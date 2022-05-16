@@ -11,10 +11,10 @@ char **parse(char *str)
 	char *token;
 	unsigned int i;
 
-	tokens = malloc(sizeof(char) * BUFFER);
+	tokens = malloc(sizeof(char) * 1024);
 	if (tokens == NULL)
 	{
-		errors(3);
+		errors(ERR_MALLOC);
 		exit(EXIT_FAILURE);
 	}
 

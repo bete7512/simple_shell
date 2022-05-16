@@ -24,14 +24,14 @@ unsigned int path_length, environ_length = 0, length, i = 0;
 			value = strtok(NULL, "\n ");
 			if (value == single)
 			{
-				errors(4);
+				errors(ERR_PATH);
 				exit(EXIT_FAILURE);
 			}
 			path_length = _strlen(value);
 			path = malloc(sizeof(char) * path_length + 1);
 			if (path == NULL)
 			{
-				errors(3);
+				errors(ERR_MALLOC);
 				return (NULL);
 			}
 			path = _strcpy(path, value);
@@ -58,7 +58,7 @@ char **copier(char **copy, unsigned int environ_length)
 	copy = malloc(sizeof(char **) * (environ_length));
 	if (copy == NULL)
 	{
-		errors(3);
+		errors(ERR_MALLOC);
 		return (NULL);
 	}
 
@@ -71,7 +71,7 @@ char **copier(char **copy, unsigned int environ_length)
 		copy[i] = malloc(sizeof(char) * variable_length + 1);
 		if (copy[i] == NULL)
 		{
-			errors(3);
+			errors(ERR_MALLOC);
 			return (NULL);
 		}
 		_strcpy(copy[i], environ[i]);

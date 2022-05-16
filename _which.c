@@ -16,7 +16,7 @@ char *_which(char *command, char *fullpath, char *path)
 	path_copy = malloc(sizeof(char) * original_path_length + 1);
 	if (path_copy == NULL)
 	{
-		errors(3);
+		errors(ERR_MALLOC);
 		return (NULL);
 	}
 	_strcpy(path_copy, path);
@@ -30,7 +30,7 @@ char *_which(char *command, char *fullpath, char *path)
 		fullpath = malloc(sizeof(char) * (path_length + command_length) + 2);
 		if (fullpath == NULL)
 		{
-			errors(3);
+			errors(ERR_MALLOC);
 			return (NULL);
 		}
 		_strcpy(fullpath, token);
