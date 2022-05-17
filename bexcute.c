@@ -17,8 +17,8 @@ int bexecute(char **tokens)
 		{NULL, NULL}
 	};
 
-	if (tokens[0] == NULL)
-		return (1);
+/*	if (tokens[0] == NULL)
+		return (1);*/
 
 	length = _strlen(tokens[0]);
 	counter = builtin_counter(builtin);
