@@ -5,10 +5,10 @@
  */
 int main(void)
 {
-	char *line, *path, *fullpath;
+	char *cmd, *path, *fullpath;
 	char **tokens;
 	bool get = false;
-	int status, fork_status;
+	int bstatus, fork_status;
 
 	signal(SIGINT, signal_to_handel);
 	while (1)
@@ -16,19 +16,19 @@ int main(void)
 		_putchar('$');
 		_putchar(' ');
 		/*signal(SIGINT, signal_to_handel);*/
-		line = _getline(stdin);
-		tokens = parse(line);
+		cmd = _getline(stdin);
+		tokens = parse(cmd);
 		if (tokens[0] == NULL)
 			continue;
-		status = bexecute(tokens);
-		if (status == 0 || status == -1)
+		bstatus = bexecute(tokens);
+		if (bstatus == 0 || bstatus == -1)
 		{
 			free(tokens);
-			free(line);
+			free(cmd);
 		}
-		if (status == 0)
+		if (bstatus == 0)
 			continue;
-		if (status == -1)
+		if (bstatus == -1)
 			_exit(EXIT_SUCCESS);
 		path = _getenv("PATH");
 		fullpath = selector(tokens[0], fullpath, path);
@@ -42,7 +42,7 @@ int main(void)
 			errors("error");
 			return (-1);
 		}
-		free_all(tokens, path, line, fullpath, get);
+		free_all(tokens, path, cmd, fullpath, get);
 	}
 	return (0);
 }

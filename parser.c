@@ -1,34 +1,34 @@
 #include "shell.h"
 
 /**
- * stringtotoken - tokenizes string
+ * parse - tokenizes string
  * @str: user input
  * Return: pointer to array of tokens
  */
 char **parse(char *str)
 {
-	char **tokens;
+	char **parsed;
 	char *token;
 	unsigned int i;
 
-	tokens = malloc(sizeof(char) * 1024);
-	if (tokens == NULL)
+	parsed = malloc(sizeof(char) * 1024);
+	if (parsed == NULL)
 	{
 		errors(ERR_MALLOC);
 		exit(EXIT_FAILURE);
 	}
 
-	token = strtok(str, "\n\t\r ");
+	token = strtok(str, "\n ");
 
 	i = 0;
 	while (token != NULL)
 	{
-		tokens[i] = token;
-		token = strtok(NULL, "\n\t\r ");
+		parsed[i] = token;
+		token = strtok(NULL, "\n ");
 		i++;
 	}
 
-	tokens[i] = NULL;
+	parsed[i] = NULL;
 
-	return (tokens);
+	return (parsed);
 }

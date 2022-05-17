@@ -12,8 +12,8 @@ int bexecute(char **tokens)
 	unsigned int i;
 
 	b_s builtin[] = {
-		{"exit", shell_exit},
-		{"env", shell_env},
+		{"exit", exiter},
+		{"env", env_display},
 		{NULL, NULL}
 	};
 
@@ -51,20 +51,20 @@ int shell_counter(b_s builtin[])
 	return (i);
 }
 /**
-**shell_exit - exits the shell of the programmm
+**exit - exits the shell of the programmm
 **Return: void
 **/
-int shell_exit(void)
+int exiter(void)
 {
 	return (-1);
 }
 
 
 /**
-**shell_env - prints enviromental viriables 
+**env_display - prints enviromental viriables 
 **Return: void
 **/
-int shell_env(void)
+int env_display(void)
 {
 	unsigned int i;
 
