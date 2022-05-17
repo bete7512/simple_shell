@@ -29,7 +29,7 @@ int main(void)
 		if (bstatus == 0)
 			continue;
 		if (bstatus == -1)
-			_exit(EXIT_SUCCESS);
+			return (0);
 		path = _getenv("PATH");
 		fullpath = selector(tokens[0], fullpath, path);
 		if (fullpath == NULL)

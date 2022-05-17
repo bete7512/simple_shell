@@ -16,17 +16,16 @@ int bexecute(char **tokens)
 		{"env", env_display},
 		{NULL, NULL}
 	};
-
-/*	if (tokens[0] == NULL)
-		return (1);*/
+	if (tokens[0] == NULL)
+		return (1);
 
 	length = _strlen(tokens[0]);
 	counter = builtin_counter(builtin);
 	for (i = 0; i < counter; i++)
 	{
-		if (_strcmp(tokens[0], builtin[i].name, length) == 0)
+		if (_strcmp(tokens[0], builtin[i].cmd, length) == 0)
 		{
-			status = (builtin[i].p)();
+			status = (builtin[i].fun)();
 			return (status);
 		}
 	}
@@ -43,7 +42,7 @@ int builtin_counter(_builtin arr[])
 {
 	unsigned int count = 0;
 
-	while (arr[count].name != NULL)
+	while (arr[count].cmd != NULL)
 	{
 		count++;
 	}
