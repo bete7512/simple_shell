@@ -1,25 +1,25 @@
 #include "shell.h"
 
 /**
- * _strcmp - compares two strings to find out if they are exactly the same
- * @name: name supplied by user to search for
- * @variable: variable to compare against
+ * _strcmp - compares two strings
+ * @str: string compared with
+ * @holder: string to compare against
  * @length: length of name
- * Return: 1 if strings are equal, -1 if they are not
+ * Return: 1 or -1
  */
-int _strcmp(char *name, char *variable, unsigned int length)
+int _strcmp(char *str, char *holder, unsigned int length)
 {
-	unsigned int var_length;
+	unsigned int counter;
 	unsigned int i;
 
-	var_length = _strlen(variable);
-	if (var_length != length)
+	counter = _strlen(holder);
+	if (counter != length)
 		return (-1);
 
 	i = 0;
-	while (name[i] != '\0' && variable[i] != '\0')
+	while (str[i] != '\0' && holder[i] != '\0')
 	{
-		if (name[i] != variable[i])
+		if (str[i] != holder[i])
 			return (1);
 		i++;
 	}
@@ -28,20 +28,19 @@ int _strcmp(char *name, char *variable, unsigned int length)
 
 /**
  * _strncmp - compares two strings
- * up to given length are the same
- * @name: name supplied by user to search for
- * @variable: variable to compare against
+ * @str: string compared with
+ * @holder: variable to compare against
  * @length: length to compare up to
- * Return: 1 if strings are equal, -1 if they are not
+ * Return: 1 or -1
  */
-int _strncmp(char *name, char *variable, unsigned int length)
+int _strncmp(char *str, char *holder, unsigned int count)
 {
 	unsigned int i;
 
 	i = 0;
-	while (i < length)
+	while (i < count)
 	{
-		if (name[i] != variable[i])
+		if (str[i] != holder[i])
 			return (-1);
 		i++;
 	}
@@ -49,10 +48,10 @@ int _strncmp(char *name, char *variable, unsigned int length)
 }
 
 /**
- * *_strcpy - copies string pointed to by src to the buffer pointed to dest
- * @dest: string destination
+ * *_strcpy - copies string
+ * @dest: string holder
  * @src: string source
- * Return: the pointer to dest
+ * Return: modified string returned
  */
 char *_strcpy(char *dest, char *src)
 {
@@ -65,15 +64,15 @@ char *_strcpy(char *dest, char *src)
 	return (dest);
 }
 /**
- * _strlen - returns the length of a string
- * @s: string to be evaluated
+ * _strlen - length of string counter
+ * @str: string
  * Return: length of string
  */
-int _strlen(char *s)
+int _strlen(char *str)
 {
 	int i = 0;
 
-	while (s[i] != '\0')
+	while (str[i] != '\0')
 		i++;
 	return (i);
 }

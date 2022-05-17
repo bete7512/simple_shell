@@ -9,10 +9,10 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 typedef enum {false, true} bool;
-#define ERR_MALLOC "Unable to malloc space\n"
+#define ERR_MALLOC "memoray cannot allocate  space\n"
 #define ERR_FORK "Unable to fork and create child process\n"
 #define ERR_PATH "No such file or directory\n"
-/* external (global) variable*/
+
 extern char **environ;
 /**
  * struct builtin - linked list of builtins
@@ -35,15 +35,15 @@ int forking(char *fullpath, char **tokens);
 void errors(char *error);
 void _puts(char *str);
 int _strlen(char *s);
-int _strcmp(char *name, char *variable, unsigned int length);
-int _strncmp(char *name, char *variable, unsigned int length);
+int _strcmp(char *str, char *holder, unsigned int length);
+int _strncmp(char *str, char *holder, unsigned int length);
 char *_strcpy(char *dest, char *src);
 int shell_env(void);
 int shell_exit(void);
 int bexecute(char **tokens);
 int shell_counter(b_s builtin[]);
-char *_getenv(const char *name);
-char **copier(char **copy, unsigned int environ_length);
-void free_all(char **tokens, char *path, char *line, char *fullpath, int flag);
+char *_getenv(const char *str);
+char **copier(char **copy, unsigned int environ_count);
+void free_all(char **tokens, char *path, char *line, char *fullpath,bool get);
 void free_dp(char **array, unsigned int length);
 #endif

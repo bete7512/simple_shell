@@ -10,12 +10,12 @@ int main(void)
 	bool get = false;
 	int status, fork_status;
 
-	/*signal(SIGINT, signal_to_handel);*/
+	signal(SIGINT, signal_to_handel);
 	while (1)
 	{
 		_putchar('$');
 		_putchar(' ');
-		signal(SIGINT, signal_to_handel);
+		/*signal(SIGINT, signal_to_handel);*/
 		line = _getline(stdin);
 		tokens = parse(line);
 		if (tokens[0] == NULL)
