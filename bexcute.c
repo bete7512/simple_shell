@@ -1,7 +1,7 @@
 #include "shell.h"
 /**
 **bexecute - built in functions
-**@tokens: arguments being passed
+**@tokens: arguments to be searched in builtin
 **Return: tokens
 **/
 int bexecute(char **tokens)

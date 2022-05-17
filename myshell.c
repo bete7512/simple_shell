@@ -7,7 +7,8 @@ int main(void)
 {
 	char *line, *path, *fullpath;
 	char **tokens;
-	int flag, builtin_status, child_status;
+	bool get = false;
+	int status, fork_status;
 
 	/*signal(SIGINT, signal_to_handel);*/
 	while (1)
@@ -16,30 +17,32 @@ int main(void)
 		_putchar(' ');
 		signal(SIGINT, signal_to_handel);
 		line = _getline(stdin);
-tokens = parse(line);
-if (tokens[0] == NULL)
-continue;
-builtin_status = bexecute(tokens);
-		if (builtin_status == 0 || builtin_status == -1)
+		tokens = parse(line);
+		if (tokens[0] == NULL)
+			continue;
+		status = bexecute(tokens);
+		if (status == 0 || status == -1)
 		{
 			free(tokens);
 			free(line);
 		}
-		if (builtin_status == 0)
+		if (status == 0)
 			continue;
-		if (builtin_status == -1)
+		if (status == -1)
 			_exit(EXIT_SUCCESS);
-		flag = 0; /* 0 if full_path is not malloc'd */
 		path = _getenv("PATH");
 		fullpath = selector(tokens[0], fullpath, path);
 		if (fullpath == NULL)
 			fullpath = tokens[0];
 		else
-			flag = 1; /* if fullpath was malloc'd, flag to free */
-		child_status = forking(fullpath, tokens);
-		if (child_status == -1)
+			get = true;
+		fork_status = forking(fullpath, tokens);
+		if (fork_status == -1)
+		{
 			errors("error");
-		free_all(tokens, path, line, fullpath, flag);
+			return (-1);
+		}
+		free_all(tokens, path, line, fullpath, get);
 	}
 	return (0);
 }
