@@ -21,11 +21,10 @@ extern char **environ;
  *
  * Description: struct for builtin functions.
 **/
-typedef struct _builtin
-{
+typedef struct _builtin{
 	char *name;
 	int (*p)(void);
-} b_s;
+}_builtin;
 int _putchar(char c);
 void signal_to_handel(int sig);
 char *_getline(FILE *fp);
@@ -41,7 +40,7 @@ char *_strcpy(char *dest, char *src);
 int env_display(void);
 int exiter(void);
 int bexecute(char **tokens);
-int shell_counter(b_s builtin[]);
+int builtin_counter(_builtin arr[]);
 char *_getenv(const char *str);
 char **copier(char **copy, unsigned int environ_count);
 void free_all(char **tokens, char *path, char *line, char *fullpath,bool get);

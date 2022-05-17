@@ -8,10 +8,10 @@ int bexecute(char **tokens)
 {
 	int status;
 	unsigned int length;
-	unsigned int number;
 	unsigned int i;
+	unsigned int counter;
 
-	b_s builtin[] = {
+	_builtin builtin[] = {
 		{"exit", exiter},
 		{"env", env_display},
 		{NULL, NULL}
@@ -21,9 +21,8 @@ int bexecute(char **tokens)
 		return (1);
 
 	length = _strlen(tokens[0]);
-
-	number = shell_counter(builtin);
-	for (i = 0; i < number; i++)
+	counter = builtin_counter(builtin);
+	for (i = 0; i < counter; i++)
 	{
 		if (_strcmp(tokens[0], builtin[i].name, length) == 0)
 		{
@@ -35,20 +34,19 @@ int bexecute(char **tokens)
 }
 
 /**
-**shell_counter - this check number of built-ins in array
-**@builtin: takes the builtin to be counted
-**Return: num of built-ins
-**/
-
-int shell_counter(b_s builtin[])
+ *
+ *
+ *
+ *
+ */
+int builtin_counter(_builtin arr[])
 {
-	unsigned int i;
-
-	i = 0;
-	while (builtin[i].name != NULL)
-		i++;
-
-	return (i);
+	unsigned int count = 0;
+	while(arr[count].name != NULL)
+	{
+		count++;
+	}
+	return (count);
 }
 /**
 **exit - exits the shell of the programmm
@@ -71,8 +69,8 @@ int env_display(void)
 	i = 0;
 	while (environ[i] != NULL)
 	{
-		write(STDOUT_FILENO, environ[i], _strlen(environ[i]));
-		write(STDOUT_FILENO, "\n", 1);
+		_puts(environ[i]);
+		_putchar('\n');
 		i++;
 	}
 	return (0);

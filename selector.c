@@ -8,10 +8,10 @@
  */
 char *selector(char *command, char *fullpath, char *path)
 {
-	unsigned int command_length, path_length, original;
+	unsigned int cmd_length, path_length, original;
 	char *path_copy, *token;
 
-	command_length = _strlen(command);
+	cmd_length = _strlen(command);
 	original = _strlen(path);
 	path_copy = malloc(sizeof(char) * original + 1);
 	if (path_copy == NULL)
@@ -26,7 +26,7 @@ char *selector(char *command, char *fullpath, char *path)
 	while (token != NULL)
 	{
 		path_length = _strlen(token);
-		fullpath = malloc(sizeof(char) * (path_length + command_length) + 2);
+		fullpath = malloc(sizeof(char) * (path_length + cmd_length) + 2);
 		if (fullpath == NULL)
 		{
 			errors(ERR_MALLOC);
@@ -35,7 +35,7 @@ char *selector(char *command, char *fullpath, char *path)
 		_strcpy(fullpath, token);
 		fullpath[path_length] = '/';
 		_strcpy(fullpath + path_length + 1, command);
-		fullpath[path_length + command_length + 1] = '\0';
+		fullpath[path_length + cmd_length + 1] = '\0';
 		if (access(fullpath, X_OK) != 0)
 		{
 			free(fullpath);
