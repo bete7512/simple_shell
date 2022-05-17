@@ -34,22 +34,23 @@ int bexecute(char **tokens)
 }
 
 /**
- *
- *
- *
+ *builtin_counter - counts builtin commands from a given array
+ *@arr:array
+ *Return:integer
  *
  */
 int builtin_counter(_builtin arr[])
 {
 	unsigned int count = 0;
-	while(arr[count].name != NULL)
+
+	while (arr[count].name != NULL)
 	{
 		count++;
 	}
 	return (count);
 }
 /**
-**exit - exits the shell of the programmm
+**exiter - exits the shell of the programmm
 **Return: void
 **/
 int exiter(void)
@@ -59,7 +60,7 @@ int exiter(void)
 
 
 /**
-**env_display - prints enviromental viriables 
+**env_display - prints enviromental viriables
 **Return: void
 **/
 int env_display(void)

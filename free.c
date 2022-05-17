@@ -3,7 +3,7 @@
 /**
  * free_all - frees all
  * @tokens: pointer to tokens of array
- * @path: pointer to path 
+ * @path: pointer to path
  * @line: pointer to user input buffer
  * @fullpath: pointer to full path
  * @get:bool
@@ -21,7 +21,6 @@ void free_all(char **tokens, char *path, char *line, char *fullpath, bool get)
  * free_dp - free double pointer
  * @array: double pointer
  * @length: length of double pointer
- * 
  */
 void free_dp(char **array, unsigned int length)
 {

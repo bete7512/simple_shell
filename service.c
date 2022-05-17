@@ -4,16 +4,16 @@
  * _strcmp - compares two strings
  * @str: string compared with
  * @holder: string to compare against
- * @length: length of name
+ * @count: length of name
  * Return: 1 or -1
  */
-int _strcmp(char *str, char *holder, unsigned int length)
+int _strcmp(char *str, char *holder, unsigned int count)
 {
-	unsigned int counter;
+	unsigned int count;
 	unsigned int i;
 
-	counter = _strlen(holder);
-	if (counter != length)
+	count = _strlen(holder);
+	if (count != length)
 		return (-1);
 
 	i = 0;
@@ -30,7 +30,7 @@ int _strcmp(char *str, char *holder, unsigned int length)
  * _strncmp - compares two strings
  * @str: string compared with
  * @holder: variable to compare against
- * @length: length to compare up to
+ * @count: length to compare up to
  * Return: 1 or -1
  */
 int _strncmp(char *str, char *holder, unsigned int count)

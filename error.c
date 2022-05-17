@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
  * errors - prints error
  * @error: error number associated with perror statement
@@ -7,6 +6,6 @@
  */
 void errors(char *error)
 {
-		write(STDERR_FILENO, error, _strlen(error));
-		perror(" ");
- }
+	write(STDERR_FILENO, error, _strlen(error));
+	perror(" ");
+}

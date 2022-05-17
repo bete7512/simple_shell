@@ -22,7 +22,8 @@ int forking(char *fullpath, char **tokens)
 	if (c_pid == 0)
 	{
 		stat = execve(fullpath, tokens, envp);
-		if (stat == -1){
+		if (stat == -1)
+		{
 			return (-1);
 		}
 	}
