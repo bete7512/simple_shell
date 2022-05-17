@@ -29,7 +29,6 @@ int forking(char *fullpath, char **tokens)
 	else
 	{
 		wait(&status);
-		return (0);
 	}
 
 	return (0);
