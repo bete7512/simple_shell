@@ -3,7 +3,7 @@
  * main - main loop of shell
  * Return: 0 on success
  */
-int main(void)
+int main(__attribute__((unused))int argc,__attribute__((unused))char **argv)
 {
 	char *cmd, *path, *fullpath;
 	char **tokens;
