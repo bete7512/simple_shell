@@ -16,7 +16,6 @@ char *_getline(FILE *fp)
 	status = getline(&cmd, &len, fp);
 	if (status == -1)
 	{
-		_putchar('\n');
 		free(cmd);
 		exit(EXIT_SUCCESS);
 	}

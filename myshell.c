@@ -13,9 +13,11 @@ int main(__attribute__((unused))int argc,__attribute__((unused))char **argv)
 	signal(SIGINT, signal_to_handel);
 	while (1)
 	{
-		_putchar('$');
-		_putchar(' ');
-		/*signal(SIGINT, signal_to_handel);*/
+		if(isatty(STDIN_FILENO))
+		{
+			_putchar('$');
+			_putchar(' ');
+		}
 		cmd = _getline(stdin);
 		tokens = parse(cmd);
 		if (tokens[0] == NULL)
@@ -29,7 +31,7 @@ int main(__attribute__((unused))int argc,__attribute__((unused))char **argv)
 		if (bstatus == 0)
 			continue;
 		if (bstatus == -1)
-			return (0);
+			_exit(EXIT_SUCCESS);
 		get = false;
 		path = _getenv("PATH");
 		fullpath = selector(tokens[0], fullpath, path);

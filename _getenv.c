@@ -25,7 +25,7 @@ unsigned int path_length, environ_length = 0, length, i = 0;
 			if (value == single)
 			{
 				errors(ERR_PATH);
-				return (NULL);
+				exit(EXIT_FAILURE);
 			}
 			path_length = _strlen(value);
 			path = malloc(sizeof(char) * path_length + 1);
