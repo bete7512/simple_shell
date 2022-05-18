@@ -10,8 +10,14 @@
  */
 void free_all(char **tokens, char *path, char *line, char *fullpath, bool get)
 {
-	free(path);
-	free(tokens);
+	if (path == NULL)
+		;
+	else
+		free(path);
+	if(tokens == NULL)
+		;
+	else
+		free(tokens);
 	free(line);
 	if (get == true)
 		free(fullpath);
@@ -27,10 +33,15 @@ void free_dp(char **array, unsigned int length)
 	unsigned int i;
 
 	i = 0;
-	while (i < length)
+	if (array == NULL)
+		;
+	else
 	{
-		free(array[i]);
-		i++;
+		while (i < length)
+		{
+			free(array[i]);
+			i++;
+		}
+		free(array);
 	}
-	free(array);
 }

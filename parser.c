@@ -11,7 +11,7 @@ char **parse(char *str)
 	char *token;
 	unsigned int i;
 
-	parsed = malloc(sizeof(char) * 1024);
+	parsed = malloc(sizeof(char) * BUFFER);
 	if (parsed == NULL)
 	{
 		errors(ERR_MALLOC);

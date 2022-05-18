@@ -7,7 +7,7 @@ int main(__attribute__((unused))int argc,__attribute__((unused))char **argv)
 {
 	char *cmd, *path, *fullpath;
 	char **tokens;
-	bool get = false;
+	bool get;
 	int bstatus, fork_status;
 
 	signal(SIGINT, signal_to_handel);
@@ -30,6 +30,7 @@ int main(__attribute__((unused))int argc,__attribute__((unused))char **argv)
 			continue;
 		if (bstatus == -1)
 			return (0);
+		get = false;
 		path = _getenv("PATH");
 		fullpath = selector(tokens[0], fullpath, path);
 		if (fullpath == NULL)

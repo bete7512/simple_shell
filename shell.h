@@ -12,7 +12,7 @@
 #define ERR_MALLOC "memoray cannot allocate  space\n"
 #define ERR_FORK "Unable to fork and create child process\n"
 #define ERR_PATH "No such file or directory\n"
-
+#define BUFFER 1024
 extern char **environ;
 /**
  * struct _builtin - linked list of builtins
