@@ -54,8 +54,7 @@ int builtin_counter(_builtin arr[])
 **/
 int exiter(void)
 {
-	exit(EXIT_SUCCESS);
-	/*return (-1);*/
+	return (-1);
 }
 
 
